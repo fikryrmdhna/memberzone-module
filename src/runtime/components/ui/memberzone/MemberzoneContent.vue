@@ -11,7 +11,7 @@ import {
 } from 'radix-vue'
 import { type MemberzoneVariants, memberzoneVariants } from '..'
 import { X } from 'lucide-vue-next'
-import { cn } from '../../../../lib/utils'
+import { cn } from '../../../lib/utils'
 
 interface MemberzoneContentProps extends DialogContentProps {
   class?: HTMLAttributes['class']
