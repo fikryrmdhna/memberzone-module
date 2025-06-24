@@ -1,0 +1,52 @@
+{
+  "name": "@fikry/memberzone-module",
+  "version": "0.0.1",
+  "description": "A reusable Memberzone component library for Nuxt 3",
+  "main": "./dist/module.js",
+  "type": "module",
+  "keywords": [
+    "test"
+  ],
+  "author": "Fikry Ramadhana",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "npm run dev:prepare && nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "peerDependencies": {
+    "nuxt": "^3.17.4",
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.1",
+    "changelogen": "^0.6.1",
+    "vue-tsc": "^2.2.10"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.10.0",
+    "@nuxt/kit": "^3.17.5",
+    "@tailwindcss/vite": "^4.1.10",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.522.0",
+    "nuxt-viewport": "^2.3.1",
+    "radix-vue": "^1.9.17",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.10",
+    "tw-animate-css": "^1.3.4",
+    "vite": "^6.3.5"
+  }
+}
