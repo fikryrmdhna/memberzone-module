@@ -7,9 +7,9 @@ const sidebarHeader = ref<HTMLElement | null>(null)
 </script>
 
 <template>
-  <t-memberzone-content class="w-full p-0 bg-[#F5F5F5]" aria-describedby="hello world" side="right">
-    <t-memberzone-header ref="sidebarHeader">
-      <t-memberzone-title class="py-3 text-xl bg-white font-semibold border-b border-[#EEEEEE] text-left lg:text-center">
+  <tempo-memberzone-content class="w-full p-0 bg-[#F5F5F5]" aria-describedby="hello world" side="right">
+    <tempo-memberzone-header ref="sidebarHeader">
+      <tempo-memberzone-title class="py-3 text-xl bg-white font-semibold border-b border-[#EEEEEE] text-left lg:text-center">
         <nuxt-link to="/" external class="flex items-center">
             <nuxt-img
                 src="/img/teras_logo.png"
@@ -19,11 +19,11 @@ const sidebarHeader = ref<HTMLElement | null>(null)
             />
         </nuxt-link>
         <span class="hidden lg:block">Akun</span>
-      </t-memberzone-title>
-      <t-memberzone-description class="hidden">
+      </tempo-memberzone-title>
+      <tempo-memberzone-description class="hidden">
         Sidebar menu mobile
-      </t-memberzone-description>
-    </t-memberzone-header>
-    <t-memberzone-section sidebar="trigger" />
-  </t-memberzone-content>
+      </tempo-memberzone-description>
+    </tempo-memberzone-header>
+    <tempo-memberzone-section sidebar="trigger" />
+  </tempo-memberzone-content>
 </template>

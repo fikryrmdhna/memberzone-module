@@ -1,8 +1,8 @@
 {
-  "name": "@fikry/memberzone-module",
+  "name": "@fikry-rmdhna/memberzone-module",
   "version": "0.0.1",
   "description": "A reusable Memberzone component library for Nuxt 3",
-  "main": "./dist/module.js",
+  "main": "./dist/module.mjs",
   "type": "module",
   "keywords": [
     "test"

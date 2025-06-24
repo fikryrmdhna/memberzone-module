@@ -87,9 +87,9 @@ const { sidebar } = defineProps<{
           </t-primary-button> -->
         </div>
       </div>
-    <t-memberzone-menus />
+    <tempo-memberzone-menus />
     <div class="px-5 mt-4">
-        <t-teras :social-media="mock.socialMediaTeras" />
+        <tempo-teras :social-media="mock.socialMediaTeras" />
     </div>
     </div>
   </client-only>

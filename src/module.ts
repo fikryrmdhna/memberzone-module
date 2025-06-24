@@ -43,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
     await addComponentsDir({
       path: resolve('./runtime/components'),
       pathPrefix: false,
-      prefix: 't',
+      prefix: 'tempo',
       global: true
     })
 
