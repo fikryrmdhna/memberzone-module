@@ -27,6 +27,7 @@ const sidebarHeader = ref<HTMLElement | null>(null)
         Sidebar menu mobile
       </tempo-memberzone-description>
     </tempo-memberzone-header>
+    <span class="hidden">Content</span>
     <tempo-memberzone-section :template-for="templateFor" sidebar="trigger" />
   </tempo-memberzone-content>
 </template>
