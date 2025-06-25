@@ -1,8 +1,39 @@
 <script setup lang="ts">
-import mock from '../../../../data/mock.json'
-const { sidebar } = defineProps<{
+import mock from '../../../data/mock.json'
+const { sidebar, templateFor } = defineProps<{
   sidebar?: string
+  templateFor: string
 }>()
+
+const userSubscription = [
+  {
+    name: 'Tempo Plus',
+    logo: '/img/t_plus_logo.svg',
+    link: 'https://tempo.co/',
+    status: 'Aktif',
+  },
+  {
+    name: 'Tempo VIP',
+    logo: '/img/t_vip_logo.svg',
+    link: 'https://membership.tempo.co/',
+    status: 'Tidak Aktif',
+  },
+  {
+    name: 'Teras',
+    logo: '/img/teras_initial_logo.svg',
+    link: 'https://membership.tempo.co/',
+    status: 'Aktif',
+  }
+]
+
+const terasIndex = userSubscription.findIndex(
+  (subscription) => subscription.name === 'Teras'
+);
+
+if (templateFor.toLowerCase() === 'teras') {
+  const [terasItem] = userSubscription.splice(terasIndex, 1);
+  userSubscription.unshift(terasItem);
+}
 
 </script>
 
@@ -34,49 +65,19 @@ const { sidebar } = defineProps<{
             Status Langganan
         </p>
         <div class="container bg-white rounded-xl p-5">
-          <div class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
+          <div v-for="(subscription, index) in userSubscription" :key="index + subscription.name" class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
             <nuxt-img
-              src="/img/teras_initial_logo.svg"
-              alt="Logo Teras Initial"
+              :src="subscription.logo"
+              :alt="`Logo ${subscription.name} Initial`"
               class="mt-1"
               width="19px"
               height="19px"
             />
-            <nuxt-link to="https://membership.tempo.co/" class="text-sm underline font-semibold text-neutral-1200" external>
-              Teras
+            <nuxt-link :to="subscription.link" class="text-sm underline font-semibold text-neutral-1200" external>
+              {{ subscription.name }}
             </nuxt-link>
-            <p class="bg-[#F6FFF8] text-xs font-medium text-[#43A047] ms-auto py-1 px-2">
-                Aktif
-            </p>
-          </div>
-          <div class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
-            <nuxt-img
-              src="/img/t_plus_logo.svg"
-              alt="Logo Teras Initial"
-              class="mt-1"
-              width="19px"
-              height="19px"
-            />
-            <nuxt-link to="https://tempo.co/" class="text-sm underline font-semibold text-neutral-1200" external>
-              Tempo Plus
-            </nuxt-link>
-            <p class="bg-[#F6FFF8] text-xs font-medium text-[#43A047] ms-auto py-1 px-2">
-              Aktif
-            </p>
-          </div>
-          <div class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
-            <nuxt-img
-              src="/img/t_vip_logo.svg"
-              alt="Logo Teras Initial"
-              class="mt-1"
-              width="19px"
-              height="19px"
-            />
-            <nuxt-link to="https://membership.tempo.co/" class="text-sm underline font-semibold text-neutral-1200" external>
-              Tempo VIP
-            </nuxt-link>
-            <p class="bg-[#FFF3F2] text-xs font-medium text-[#FD1515] ms-auto py-1 px-2">
-              Tidak Aktif
+            <p class="text-xs font-medium ms-auto py-1 px-2" :class="subscription.status === 'Aktif' ? 'bg-[#F6FFF8] text-[#43A047]' : 'bg-[#FFF3F2] text-[#FD1515]' ">
+              {{ subscription.status }}
             </p>
           </div>
 
@@ -89,7 +90,7 @@ const { sidebar } = defineProps<{
       </div>
     <tempo-memberzone-menus />
     <div class="px-5 mt-4">
-        <tempo-teras :social-media="mock.socialMediaTeras" />
+      <tempo-teras :social-media="mock.socialMediaTeras" />
     </div>
     </div>
   </client-only>

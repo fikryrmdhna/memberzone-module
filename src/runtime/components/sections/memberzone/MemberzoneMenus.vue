@@ -155,7 +155,6 @@ function isActive(path: string) {
       class="py-2.5 active relative text-base font-medium text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE]"
       :class="[{ 'router-link-exact-active': isActive(link.path) }]"
       :to="link.path"
-      @click="link.path"
     >
       <span class="flex gap-1" v-html="link.label" />
     </NuxtLink>

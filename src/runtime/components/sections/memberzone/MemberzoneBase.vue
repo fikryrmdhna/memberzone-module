@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-// import { useViewport } from 'nuxt-viewport'
 
-// const viewport = useViewport()
+defineProps<{
+  templateFor: string
+  side: 'right' | 'left'
+}>()
+
 const sidebarHeader = ref<HTMLElement | null>(null)
 </script>
 
 <template>
-  <tempo-memberzone-content class="w-full p-0 bg-[#F5F5F5]" aria-describedby="hello world" side="right">
+  <tempo-memberzone-content class="w-full p-0 bg-[#F5F5F5]" aria-describedby="hello world" :side="side">
     <tempo-memberzone-header ref="sidebarHeader">
       <tempo-memberzone-title class="py-3 text-xl bg-white font-semibold border-b border-[#EEEEEE] text-left lg:text-center">
         <nuxt-link to="/" external class="flex items-center">
@@ -24,6 +27,6 @@ const sidebarHeader = ref<HTMLElement | null>(null)
         Sidebar menu mobile
       </tempo-memberzone-description>
     </tempo-memberzone-header>
-    <tempo-memberzone-section sidebar="trigger" />
+    <tempo-memberzone-section :template-for="templateFor" sidebar="trigger" />
   </tempo-memberzone-content>
 </template>
