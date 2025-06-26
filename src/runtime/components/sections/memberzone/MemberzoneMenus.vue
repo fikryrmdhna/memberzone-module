@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { useRoute, navigateTo } from "#imports";
+
 interface MemberzoneMenuItem {
   path: string
   pathSSO: string

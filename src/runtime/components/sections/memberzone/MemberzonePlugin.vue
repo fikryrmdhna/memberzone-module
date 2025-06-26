@@ -3,6 +3,7 @@ defineProps<{
   useInitial?: string
   templateFor: string
   side: 'right' | 'left'
+  headerLogo: string
 }>()
 </script>
 
@@ -17,6 +18,6 @@ defineProps<{
           </figure>
         </button>
       </tempo-memberzone-trigger>
-      <tempo-memberzone-base :template-for="templateFor" :side="side" />
+      <tempo-memberzone-base :template-for="templateFor" :side="side" :header-logo="headerLogo" />
     </tempo-memberzone>
 </template>

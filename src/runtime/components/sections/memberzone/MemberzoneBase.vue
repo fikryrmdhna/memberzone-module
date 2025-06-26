@@ -4,6 +4,7 @@ import { ref } from 'vue'
 defineProps<{
   templateFor: string
   side: 'right' | 'left'
+  headerLogo: string
 }>()
 
 const sidebarHeader = ref<HTMLElement | null>(null)
@@ -15,10 +16,10 @@ const sidebarHeader = ref<HTMLElement | null>(null)
       <tempo-memberzone-title class="py-3 text-xl bg-white font-semibold border-b border-[#EEEEEE] text-left lg:text-center">
         <nuxt-link to="/" external class="flex items-center">
             <nuxt-img
-                src="/img/teras_logo.png"
-                alt="Logo Teras"
-                format="webp"
-                class="ps-5 w-[140px] block lg:hidden"
+              :src="headerLogo"
+              :alt="`Logo ${templateFor}`"
+              format="webp"
+              class="ps-5 w-[140px] block lg:hidden"
             />
         </nuxt-link>
         <span class="hidden lg:block">Akun</span>
@@ -27,7 +28,6 @@ const sidebarHeader = ref<HTMLElement | null>(null)
         Sidebar menu mobile
       </tempo-memberzone-description>
     </tempo-memberzone-header>
-    <span class="hidden">Content</span>
     <tempo-memberzone-section :template-for="templateFor" sidebar="trigger" />
   </tempo-memberzone-content>
 </template>

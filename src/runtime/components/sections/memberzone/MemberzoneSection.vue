@@ -80,11 +80,11 @@ if (templateFor.toLowerCase() === 'teras') {
           </p>
         </div>
 
-        <!-- <t-primary-button class="w-full mt-4">
+        <tempo-primary-button class="w-full mt-4">
           <nuxt-link class="block w-full h-full" to="https://tempo.co/users/subscriptions" target="_blank">
             Lihat Benefit Lainnya
           </nuxt-link>
-        </t-primary-button> -->
+        </tempo-primary-button>
       </div>
     </div>
   <tempo-memberzone-menus />
