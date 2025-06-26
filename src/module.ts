@@ -3,11 +3,6 @@ import { defineNuxtModule, addPlugin, addComponentsDir, createResolver } from '@
 export interface ModuleOptions {
   // Define any configuration options here
   prefix?: string
-  viewport?: {
-    breakpoints?: Record<string, number>
-    defaultBreakpoints?: Record<string, string>
-    fallbackBreakpoint?: string
-  }
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -16,23 +11,7 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'memberzoneModule',
   },
   defaults: {
-    prefix: 't',
-    viewport: {
-      breakpoints: {
-        xs: 320,
-        sm: 640,
-        md: 768,
-        lg: 1024,
-        xl: 1280,
-        '2xl': 1536
-      },
-      defaultBreakpoints: {
-        mobile: 'xs',
-        tablet: 'md',
-        desktop: 'lg'
-      },
-      fallbackBreakpoint: 'lg'
-    }
+    prefix: 't'
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -61,9 +40,5 @@ export default defineNuxtModule<ModuleOptions>({
     // Register Radix Vue module
     nuxt.options.modules = nuxt.options.modules || []
     nuxt.options.modules.push('radix-vue/nuxt')
-    nuxt.options.modules.push(['nuxt-viewport', options.viewport || {}])
-
-    // Log module options for debugging
-    console.log('My Nuxt Module Options:', options)
   }
 })

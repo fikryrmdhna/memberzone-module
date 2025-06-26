@@ -1,6 +1,6 @@
 {
   "name": "@fikry-rmdhna/memberzone-module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A reusable Memberzone component library for Nuxt 3",
   "main": "./dist/module.mjs",
   "type": "module",
@@ -42,7 +42,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.522.0",
-    "nuxt-viewport": "^2.3.1",
     "radix-vue": "^1.9.17",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.10",
