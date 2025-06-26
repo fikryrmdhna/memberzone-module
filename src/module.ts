@@ -32,10 +32,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Add Tailwind Vite plugin
     // Add Tailwind Vite plugin directly
-    const tailwindcss = (await import('@tailwindcss/vite')).default
-    nuxt.options.vite = nuxt.options.vite || {}
-    nuxt.options.vite.plugins = nuxt.options.vite.plugins || []
-    nuxt.options.vite.plugins.push(tailwindcss())
+    // const tailwindcss = (await import('@tailwindcss/vite')).default
+    // nuxt.options.vite = nuxt.options.vite || {}
+    // nuxt.options.vite.plugins = nuxt.options.vite.plugins || []
+    // nuxt.options.vite.plugins.push(tailwindcss())
 
     // Register Radix Vue module
     nuxt.options.modules = nuxt.options.modules || []
